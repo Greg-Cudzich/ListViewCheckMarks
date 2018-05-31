@@ -2,49 +2,29 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/root_layout"
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="10dp">
+   >
 
-
-    <ImageView
-        android:id="@+id/check_mark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="4dp"
-        android:maxLines="1"
-        android:paddingEnd="4dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="2dp"
-        android:layout_marginLeft="4dp"
-        android:paddingRight="4dp"
-        android:background="@android:drawable/ic_lock_idle_alarm"
-        android:visibility="gone" />
 
     <CheckedTextView
         android:id="@+id/Bank"
+        android:padding="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="47dp"
-        android:textColor="@color/title"
-        android:textSize="16dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/Nickname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Bank" />
+        android:layout_marginTop="1dp"
+        android:checkMark="@drawable/checkedwhitechecktesttest123killme"
+        android:checked="false"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/white"
+        android:textSize="16dp" />
 
 
 
