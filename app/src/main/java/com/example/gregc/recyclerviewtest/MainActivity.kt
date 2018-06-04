@@ -14,6 +14,7 @@ import android.widget.TextView
 
 
 
+var finalList = mutableListOf<String>()
 
 class MainActivity : AppCompatActivity() {
     var getChoice: Button? = null
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val banknames = ArrayList<Item>()
         banknames.add(Header( "Chase" ))
         banknames.add(ListItem("Chase Account 1\nChase nickname 1"))
@@ -49,12 +51,14 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = TwoTextArrayAdapter(this , banknames)
         val list = findViewById<ListView>(R.id.list)
+
         list.choiceMode = ListView.CHOICE_MODE_MULTIPLE
         list.adapter = adapter
         getChoice!!.setOnClickListener {
             var selected = ""
             var cntChoice = list.count
             var sparseBooleanArray = list.checkedItemPositions
+            println(list.getItemAtPosition(1).toString())
             for (i in 0 until cntChoice)
             {
                 if (sparseBooleanArray[i])
@@ -62,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                     selected += list.getItemAtPosition(i).toString() + "\n"
                 }
             }
-            Toast.makeText(this@MainActivity, selected, Toast.LENGTH_LONG).show()
+            Toast.makeText(this@MainActivity, finalList.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -84,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
 
         override fun getViewTypeCount(): Int {
-                return count
+            return count
         }
 
         override fun getItemViewType(position: Int): Int {
@@ -98,8 +102,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-     class Holder {
-         lateinit var txtName: CheckedTextView
+    class Holder {
+        lateinit var txtName: CheckedTextView
     }
 
     class ListItem(text1:String):Item {
@@ -113,6 +117,7 @@ class MainActivity : AppCompatActivity() {
         override fun getView(inflater: LayoutInflater, convertView: View?):View? {
             val holder :Holder
             var view: View? = convertView
+
             if (convertView == null)
             {
                 holder = Holder()
@@ -128,6 +133,15 @@ class MainActivity : AppCompatActivity() {
             val text1 = view!!.findViewById(R.id.Bank) as CheckedTextView
             text1.setOnClickListener { v -> (v as CheckedTextView).toggle()
                 text1.setCheckMarkDrawable(R.drawable.checkedwhitechecktesttest123killme)
+                println("here "+ text1.isChecked)
+                if(text1.isChecked)
+                    finalList.add(text1.text.toString())
+                else{
+                    finalList.remove((text1.text.toString()))
+                }
+                println(text1.text)
+                println(text1.verticalScrollbarPosition)
+
             }
             text1.text = str1
             return view
@@ -163,9 +177,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        }
-
-
+}
 
 
 

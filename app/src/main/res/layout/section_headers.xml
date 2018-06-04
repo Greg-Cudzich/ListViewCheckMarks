@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#fff">
+    android:background = "@drawable/button_drawable"
+    >
 
 
     <TextView
@@ -13,7 +14,6 @@
         android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textSize="21sp"
         android:text = "Header"
-        android:background = "@android:color/white"
         android:textColor="@android:color/darker_gray" />
 
 </LinearLayout>

@@ -11,7 +11,7 @@
 
 
     <CheckedTextView
-        android:id="@+id/Bank"
+        android:id="@+id/Banks"
         android:padding="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
